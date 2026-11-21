@@ -14,6 +14,9 @@ const icons: Record<string, ReactNode> = {
   trash: <><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></>,
   plus: <><path d="M12 5v14M5 12h14"/></>,
   sparkle: <><path d="m12 3 2.2 5.8L20 11l-5.8 2.2L12 19l-2.2-5.8L4 11l5.8-2.2L12 3Z"/><path d="m19 16 .7 1.8L21.5 18l-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.2L19 16Z"/></>,
+  share: <><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8.2 10.8 7.6-4.4M8.2 13.2l7.6 4.4"/></>,
+  copy: <><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></>,
+  send: <><path d="m21 3-7.2 18-3.1-7.7L3 10.2 21 3Z"/><path d="M10.7 13.3 21 3"/></>,
 }
 export default function ContentIcon({ name }: { name: string }) {
   const aliases: Record<string, string> = { '◇': 'box', '▤': 'orders', '↓': 'down', '▣': 'wallet', '✓': 'check', '◷': 'clock', '♙': 'users', '↗': 'stock', '✧': 'sparkle' }

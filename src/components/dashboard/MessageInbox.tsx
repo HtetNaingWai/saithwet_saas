@@ -14,6 +14,12 @@ const sample: Conversation[] = [
   { id:'2', name:'May Thiri', channel:'Telegram', messages:[{direction:'in',text:'ဒီ cardigan အရောင်အဖျော့လေး ရှိသေးလားရှင့်?',image:'/inbox-products/cardigan.png',imageAlt:'Beige knitted cardigan'}] },
   { id:'3', name:'Su Su', channel:'TikTok', messages:[{direction:'in',text:'ဒီ jeans size 28 ဘယ်လောက်လဲ?',image:'/inbox-products/jeans.png',imageAlt:'Blue wide-leg jeans'}] },
 ]
+function publicConversations(): Conversation[] {
+  try {
+    const saved = JSON.parse(localStorage.getItem('saithwet-public-messages-v1') || '[]') as Array<{ id?: string; name?: string; channel?: Channel; text?: string; image?: string }>
+    return saved.filter(item => item.id && item.name && item.text).map(item => ({ id: item.id as string, name: item.name as string, channel: item.channel === 'Telegram' || item.channel === 'TikTok' ? item.channel : 'Messenger', messages: [{ direction: 'in', text: item.text as string, image: item.image, imageAlt: 'Product order' }] }))
+  } catch { return [] }
+}
 const copy = {
   en:{title:'Inbox',subtitle:'Keep conversations in one place.',sample:'Simulated inbox',notice:'Sample conversations only. No social accounts are connected and replies are not sent.',search:'Search conversations',all:'All',noResults:'No conversations found.',select:'Select a conversation',placeholder:'Write a sample reply…',send:'Add reply',suggest:'Suggest AI reply',order:'Create order',details:'Customer details',channel:'Channel',status:'Connection',disconnected:'Not connected',customer:'Customer',reply:'Reply',label:'Channel filter'},
   my:{title:'စာဝင်ပုံး',subtitle:'Customer စာတွေကို တစ်နေရာတည်းမှာ ကြည့်ပါ။',sample:'နမူနာ inbox',notice:'ဤစာများသည် နမူနာသာဖြစ်သည်။ Social account မချိတ်ထားသေး၍ reply များ တကယ်မပို့ပါ။',search:'စာများရှာရန်',all:'အားလုံး',noResults:'ရှာဖွေမှုနှင့် ကိုက်ညီသောစာ မရှိပါ။',select:'Conversation တစ်ခုရွေးပါ',placeholder:'နမူနာ reply ရေးပါ…',send:'Reply ထည့်ရန်',suggest:'AI reply အကြံပြုရန်',order:'အော်ဒါဖန်တီးရန်',details:'ဝယ်သူအချက်အလက်',channel:'Channel',status:'ချိတ်ဆက်မှု',disconnected:'မချိတ်ရသေးပါ',customer:'ဝယ်သူ',reply:'Reply',label:'Channel ရွေးရန်'},
@@ -24,7 +30,7 @@ function ChannelMark({channel}:{channel:Channel}) {
 type Props = { onCreateOrder: (source: ConversationSource) => void; initialSelected: string; pendingDrafts: Record<string, PendingDraft>; demoReplies: Record<string, string[]>; onConsumeDraft: (id: string) => void; products: Product[]; onRecordSale: (sale: Sale) => SaleResult }
 export default function MessageInbox({onCreateOrder,initialSelected,pendingDrafts,demoReplies,onConsumeDraft,products,onRecordSale}:Props) {
   const {language}=useLanguage();const t=copy[language]
-  const [conversations,setConversations]=useState<Conversation[]>(sample)
+  const [conversations,setConversations]=useState<Conversation[]>(()=>[...publicConversations(), ...sample])
   const threadRef=useRef<HTMLDivElement>(null)
   const [mobilePanel,setMobilePanel]=useState<'messages'|'order'>('messages')
   const [selected,setSelected]=useState(initialSelected);const [channel,setChannel]=useState<Channel|'All'>('All');const [query,setQuery]=useState('');const [reply,setReply]=useState('')
@@ -33,6 +39,7 @@ export default function MessageInbox({onCreateOrder,initialSelected,pendingDraft
   const lastIncoming=current?.messages.filter(m=>m.direction==='in').at(-1)?.text ?? ''
   const replyCount=current ? (demoReplies[current.id]?.length ?? 0) : 0
   useEffect(()=>{const thread=threadRef.current;if(thread) thread.scrollTop=thread.scrollHeight},[current?.id,current?.messages.length,replyCount])
+  useEffect(()=>{const timer=window.setInterval(()=>setConversations(items=>{const publicItems=publicConversations();const sampleIds=new Set(sample.map(item=>item.id));return [...publicItems,...items.filter(item=>sampleIds.has(item.id))]}),1200);return()=>window.clearInterval(timer)},[])
   function suggestReply(){
     setReply(language==='my'?'မေးမြန်းပေးလို့ ကျေးဇူးတင်ပါတယ်။ ပစ္စည်းအချက်အလက်ကို စစ်ဆေးပြီး ပြန်လည်အကြောင်းကြားပေးပါမယ်။':'Thanks for reaching out! I’ll check the product details and get back to you shortly.')
   }

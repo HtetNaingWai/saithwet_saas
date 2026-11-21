@@ -35,6 +35,8 @@
 :root[data-theme='dark'] .dash-breadcrumb .dash-crumb-brand>span,
 :root[data-theme='dark'] .dash-breadcrumb .dash-crumb-current{color:#eef4f1}
 
+.nav-icon-store{color:#7c77c7;background:#f0edfc}
+
 /* Separate hover targets and use a single dark neutral navigation palette. */
 .dash-nav .nav-group button + button{margin-top:5px}.dash-nav button{min-height:44px;padding:9px 12px;color:#52645d}.dash-nav button:hover{background:#293b35;color:#fff}.dash-nav button.active{background:#1d302a;color:#fff}.dash-nav button.active:hover{background:#1d302a;color:#fff}.dash-nav-label{color:#7f9188}.sidebar-collapse{width:39px;height:39px;background:#eef2ef;color:#243b32}.sidebar-collapse svg{width:21px;height:21px}.sidebar-collapse:hover{background:#293b35;color:#fff}.sidebar-tooltip{position:fixed;z-index:1000;transform:translateY(-50%);max-width:240px;padding:8px 11px;border-radius:8px;background:#1d302a;color:#fff;box-shadow:0 6px 18px #0003;font:600 12px/1.5 'DM Sans','Noto Sans Myanmar',sans-serif;pointer-events:none;white-space:nowrap}.sidebar-tooltip:before{content:'';position:absolute;left:-5px;top:50%;transform:translateY(-50%) rotate(45deg);width:10px;height:10px;background:#1d302a}
 :root[data-theme='dark'] .dash-nav button{color:#c0d0c5}:root[data-theme='dark'] .dash-nav button:hover{background:#3a5146;color:#fff}:root[data-theme='dark'] .dash-nav button.active,:root[data-theme='dark'] .dash-nav button.active:hover{background:#dcebe0;color:#182a22}:root[data-theme='dark'] .sidebar-collapse{background:#293e34;color:#e3f1e6}:root[data-theme='dark'] .sidebar-collapse:hover{background:#435b4d;color:#fff}

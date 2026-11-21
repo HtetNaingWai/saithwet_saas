@@ -2,7 +2,7 @@ import { useState, type FormEvent } from 'react'
 import { useLanguage } from '../../context/LanguageContext'
 import ContentIcon from './ContentIcon'
 
-export type DemoOrder = { id: string; name: string; item: string; total: string; status: 'new' | 'pending' | 'preparing' | 'shipped' | 'delivered' | 'cancelled'; productId?: string; quantity?: number; channel?: string; paymentMethod?: string; unitPrice?: number; delivery?: number; color?: string; size?: string; location?: string; phone?: string }
+export type DemoOrder = { id: string; name: string; item: string; total: string; status: 'new' | 'pending' | 'preparing' | 'shipped' | 'delivered' | 'cancelled'; productId?: string; quantity?: number; channel?: string; paymentMethod?: string; unitPrice?: number; delivery?: number; color?: string; size?: string; location?: string; phone?: string; stockAdjusted?: boolean }
 export type Draft = { name: string; phone: string; item: string; color: string; size: string; quantity: string; location: string; price: string; delivery: string }
 const sample: Draft = { name: 'Aye Aye', phone: '', item: 'Classic Oversized T-Shirt', color: 'Blue', size: 'M', quantity: '1', location: 'Mandalay', price: '25000', delivery: '3000' }
 const words = {

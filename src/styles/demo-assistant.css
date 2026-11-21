@@ -1,0 +1,23 @@
+.demo-assistant{padding:28px;border:1px solid var(--d-line);border-radius:20px;max-width:980px}
+.demo-assistant-head{display:flex;align-items:flex-start;gap:15px;padding-bottom:23px;border-bottom:1px solid var(--d-line)}
+.demo-assistant-logo{display:grid;place-items:center;flex:none;width:48px;height:48px;border-radius:15px;background:#eee9fa;color:#9073b7}
+.demo-assistant-logo svg,.demo-assistant-reply svg{width:22px;height:22px}
+.demo-assistant-head h2{margin:4px 0;color:var(--d-text);font-size:19px}
+.demo-assistant-head p{margin:0;color:var(--d-muted);font-size:12px;line-height:1.7}
+.demo-assistant-eyebrow{color:#839eae;font-size:10px;font-weight:800;letter-spacing:1px}
+.demo-assistant-badge{margin-left:auto;flex:none;padding:7px 10px;border-radius:9px;background:var(--d-hover);color:var(--d-text);font-size:10px;font-weight:800}
+.demo-assistant-conversation{display:flex;flex-direction:column;align-items:flex-start;gap:14px;min-height:190px;padding:26px 0}
+.demo-assistant-reply{display:flex;gap:10px;max-width:80%;padding:15px;border-radius:6px 16px 16px;background:var(--d-hover);color:var(--d-text);font-size:13px;line-height:1.8}
+.demo-assistant-reply svg{flex:none;color:#947bb5}.demo-assistant-reply p{margin:0}
+.demo-assistant-question{align-self:flex-end;max-width:80%;padding:13px 16px;border-radius:16px 6px 16px 16px;background:#dfeaf2;color:#36536a;font-size:12px;line-height:1.7}
+.demo-assistant-prompts{padding-top:19px;border-top:1px solid var(--d-line)}
+.demo-assistant-prompts strong{font-size:12px;color:var(--d-text)}
+.demo-assistant-prompts>div{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px}
+.demo-assistant-prompts button{display:flex;align-items:center;gap:9px;padding:10px 12px;border:1px solid var(--d-line);border-radius:10px;background:var(--d-card);color:var(--d-text);font:inherit;font-size:11px;text-align:left;cursor:pointer}
+.demo-assistant-prompts button:hover,.demo-assistant-prompts button.active{background:var(--d-hover);border-color:#93adbc}
+.demo-assistant-prompts button:focus-visible{outline:2px solid #88a8c2;outline-offset:2px}
+.demo-assistant-prompts button span{color:#7995aa}
+.demo-assistant-note{margin:22px 0 0;color:var(--d-muted);font-size:11px;line-height:1.7}
+:root[data-theme=dark] .demo-assistant-logo{background:#4b405f;color:#e0caef}
+:root[data-theme=dark] .demo-assistant-question{background:#355063;color:#e2eef6}
+@media(max-width:600px){.demo-assistant{padding:20px}.demo-assistant-head{flex-wrap:wrap}.demo-assistant-head>div{flex:1;min-width:150px}.demo-assistant-reply,.demo-assistant-question{max-width:95%}.demo-assistant-prompts>div{display:grid}.demo-assistant-prompts button{justify-content:space-between}}

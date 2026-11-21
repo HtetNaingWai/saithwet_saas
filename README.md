@@ -1,32 +1,47 @@
 # SaiThwet — ဆိုင်သွက်
 
-Bilingual React + TypeScript landing page for the SaiThwet social-commerce prototype.
+SaiThwet သည် Facebook, Messenger, Telegram နှင့် TikTok မှ ရောင်းချသူများအတွက် ရည်ရွယ်ထားသော social-commerce workspace prototype ဖြစ်သည်။ စာများ၊ အော်ဒါ၊ ပစ္စည်းလက်ကျန်၊ ငွေပေးချေမှု၊ ဝယ်ယူသူနှင့် စာရင်းအချက်အလက်များကို dashboard တစ်ခုထဲတွင် ပြသရန် ဒီဇိုင်းရေးဆွဲထားပါသည်။
 
-## Run locally
+## ပါဝင်သောအရာများ
+
+- မြန်မာ / English ဘာသာစကားနှင့် light / dark theme
+- Dashboard overview နှင့် အော်ဒါ status အနှစ်ချုပ်
+- Customer message မှ AI order draft အဖြစ် ပြသသော presentation flow
+- Inbox မှ order ကို အတည်ပြုလျှင် payment record ထည့်သွင်းပြီး product stock လျော့သွားသော local demo flow
+- Products, orders, payment history, customers နှင့် analytics pages
+- Customer information ကို ကြည့်ရန်၊ ပြင်ရန်နှင့် customer list မှ ဖယ်ရှားရန်
+- Profile, settings, channel connection အချက်အလက်နှင့် Growth plan display
+- Mobile, tablet နှင့် desktop အတွက် responsive layout
+
+## Growth plan demo
+
+Profile page တွင် **Growth plan — 30,000 MMK / လ** ကို လက်ရှိအသုံးပြုနေသော plan အဖြစ် ပြထားပါသည်။ ၎င်းသည် product presentation အတွက် static subscription display ဖြစ်ပြီး အမှန်တကယ် billing၊ renewal သို့မဟုတ် payment provider ကို မချိတ်ဆက်ထားသေးပါ။
+
+## Local မှ run ရန်
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open the local address printed by Vite. `npm run build` creates a production build, and `npm run lint` runs the project linter.
+Vite ပြသပေးသော local address ကို browser တွင် ဖွင့်ပါ။ Production build စစ်ရန် `npm run build` နှင့် lint စစ်ရန် `npm run lint` ကို သုံးနိုင်ပါသည်။
 
 ## Project structure
 
-- `src/pages/` — page composition.
-- `src/components/layout/` — shared navigation and branding.
-- `src/components/landing/` — landing-page components and icons.
-- `src/components/auth/` — simulated login and registration dialog.
-- `src/context/` — language and light/dark theme preferences.
-- `src/data/` — Burmese and English copy.
-- `src/styles/` — shared styles, responsive rules and motion.
-- `src/assets/` and `public/` — static assets.
+- `src/pages/` — page composition
+- `src/components/dashboard/` — dashboard modules နှင့် demo workflows
+- `src/components/layout/` — shared navigation နှင့် branding
+- `src/components/landing/` — landing page components
+- `src/components/auth/` — UI-only login / registration dialog
+- `src/context/` — language နှင့် theme preferences
+- `src/data/` — Burmese နှင့် English copy
+- `src/styles/` — shared styles နှင့် responsive rules
+- `src/assets/` နှင့် `public/` — static assets
 
-The language and theme choices are saved in the current browser's local storage. The landing page is a prototype: its example messages, integrations and plans are illustrative. It does not connect to live social networks, AI services, account systems, or payment providers.
+## Prototype အခြေအနေ
 
-The login and registration dialog is a UI-only simulation. It does not create or authenticate accounts or store passwords. Its demo session lasts only until the page is refreshed.
+ဒီ project သည် front-end prototype ဖြစ်ပါသည်။ Workspace data များကို browser ရဲ့ `localStorage` တွင်သာ သိမ်းဆည်းသောကြောင့် browser data ဖျက်ပါက ပျောက်နိုင်ပြီး device များအကြား မမျှဝေပါ။
 
-Submitting the simulated login or registration form opens a sample dashboard with overview, orders, products and conversations. The demo session is temporary; it does not authenticate users or send real messages.
+Social channels, live AI service, real account authentication, payment provider နှင့် real subscription billing မချိတ်ဆက်ထားသေးပါ။ AI order draft နှင့် assistant reply များသည် presentation အတွက် ကြိုတင်သတ်မှတ်ထားသော sample data ဖြစ်ပါသည်။ Inbox မှ order ကို confirm လုပ်သည့်အခါ local order/payment record နှင့် stock ကိုသာ update လုပ်ပါသည်။
 
-The workspace provides browser-local order, product, payment and settings records. No backend, real authentication, social messaging, AI service or payment provider is connected. Records saved in localStorage can be cleared with browser data and are not shared across devices.
-# saithwet_saas
+`api/extract-order.js` သည် optional Vercel Function အဖြစ်ရှိသော်လည်း လက်ရှိ demo UI မှ မခေါ်ယူပါ။ Production တွင် အသုံးပြုလိုပါက server-side API key, authentication, authorization, rate limiting နှင့် persistent database ကို ထည့်သွင်းရန်လိုအပ်ပါသည်။

@@ -70,6 +70,18 @@
 }
 .inbox-thread:focus-visible{outline:2px solid #88a8c2;outline-offset:-2px}
 
+/* Quick actions keep reply assistance close to the composer. */
+.inbox-composer-actions{display:flex;align-items:center;gap:8px;width:100%;margin-top:2px}
+.inbox-ai-button{display:inline-flex;align-items:center;gap:8px;min-height:34px;padding:0 12px;border:1px solid #dce5ed;border-radius:10px;background:var(--i-surface);color:var(--i-text);font:inherit;font-size:11px;font-weight:700;cursor:pointer;transition:background .2s,border-color .2s,color .2s,box-shadow .2s,transform .2s}
+.inbox-ai-button svg{width:15px;height:15px;padding:3px;border-radius:7px;background:linear-gradient(135deg,#dcecff,#f2dcff);color:#6e78bd;box-sizing:content-box;transition:color .2s,transform .2s}
+.inbox-ai-button:hover{background:#fff;border-color:#aec8d8;color:#334e61;box-shadow:0 5px 14px #577d9524;transform:translateY(-1px)}
+.inbox-ai-button:hover svg{color:#845ec2;transform:rotate(8deg) scale(1.05)}
+.inbox-ai-button:focus-visible{outline:2px solid #88a8c2;outline-offset:2px}
+:root[data-theme='dark'] .inbox-ai-button{border-color:#53656c;background:#3d4d52;color:#edf5f4}
+:root[data-theme='dark'] .inbox-ai-button:hover{background:#fff;border-color:#aec8d8;color:#334e61}
+@media(max-width:700px){.inbox-composer-actions{margin-top:1px}.inbox-ai-button{min-height:36px;font-size:10px}}
+@media(prefers-reduced-motion:reduce){.inbox-ai-button{transition:none}.inbox-ai-button:hover{transform:none}}
+
 .inbox-mobile-tabs{display:none}
 @media(max-width:700px){
   .inbox-mobile-tabs{display:flex;gap:4px;margin-bottom:10px;padding:4px;border:1px solid var(--i-line);border-radius:12px;background:var(--i-surface)}

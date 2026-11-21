@@ -105,6 +105,7 @@
 .wp-delete-product:focus-visible{outline:2px solid #88a8c2;outline-offset:2px}
 :root[data-theme='dark'] .wp-delete-product:hover{background:#593d3b;border-color:#9a6862;color:#ffccc5}
 @media(prefers-reduced-motion:reduce){.wp-delete-product{transition:none}}
+
 .wp-order-statuses{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media(max-width:640px){.wp-order-statuses{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:360px){.wp-order-statuses{grid-template-columns:1fr}}
@@ -137,3 +138,20 @@
   .wp-stats-three>.wp-stat:last-child:nth-child(odd){grid-column:1/-1}
 }
 @media(max-width:640px){.wp-product-dialog .workspace-input,.dash-content .workspace-stock input{font-size:16px}}
+
+/* Final action color pass for compact commerce rows. */
+.wp-row-action.view{color:#4f83ad;background:#eef6fc;border-color:#d7e8f3}
+.wp-row-action.edit{color:#896caf;background:#f5effb;border-color:#e7daf4}
+.wp-row-action.delete{color:#bd625b;background:#fff1ef;border-color:#f0d7d3}
+.wp-row-action.view:hover{background:#e1f0fa;border-color:#b9d6e8;color:#3e719b}
+.wp-row-action.edit:hover{background:#eee3f8;border-color:#d7c3eb;color:#7658a1}
+.wp-row-action.delete:hover{background:#fbe4e1;border-color:#e6bbb5;color:#a94c46}
+.wp-edit-product{color:#896caf;background:#f8f3fc;border-color:#e7daf4}
+.wp-edit-product:hover{background:#eee3f8;border-color:#d7c3eb;color:#7658a1}
+.wp-delete-product{color:#bd625b;background:#fff1ef;border-color:#f0d7d3}
+.wp-delete-product:hover{background:#fbe4e1;border-color:#e6bbb5;color:#a94c46}
+:root[data-theme='dark'] .wp-row-action.view{background:#304d5e;border-color:#486e83;color:#9dd1ee}
+:root[data-theme='dark'] .wp-row-action.edit{background:#4a3d5b;border-color:#6d5a86;color:#d2b9f0}
+:root[data-theme='dark'] .wp-row-action.delete{background:#583d3b;border-color:#80534e;color:#ffb6ae}
+:root[data-theme='dark'] .wp-edit-product{background:#4a3d5b;border-color:#6d5a86;color:#d2b9f0}
+:root[data-theme='dark'] .wp-delete-product{background:#583d3b;border-color:#80534e;color:#ffb6ae}
